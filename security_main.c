@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include "library/grovepi.h"
 
+//Connexion : ssh faizabenchraa@162.38.111.124
+//Pwd : faizabenchraa 
 //Compilation : gcc security_main.c library/grovepi.c -o security_main
 //Execution : sudo ./security_main
+//Recuperation : scp faizabenchraa@162.38.111.124:museum_security/photos/photo.jpg ~
 
 #define us_cmd 7
 
@@ -17,7 +20,7 @@ int main(void)
 	int data;
 
 	//Augmenter le son au maximum
-	system("amixer -D pulse sset Master 100%")
+	system("amixer -D pulse sset Master 100%") ;
 
 	while(1) // boucle infinie
 	{
@@ -32,8 +35,7 @@ int main(void)
 			system("omxplayer resources/alarme_boosted.wav") ; //lit le message audio
 		}
 		else if (data<=100.0){
-			system("raspistill -v -o photo.jpg") ; //prend en photo
-			//récuperer le fichier via ssh avec : scp faizabenchraa@162.38.111.124:photo.jpg ~
+			system("raspistill -v -o photos/photo.jpg") ; //prend en photo
 		}
 	  pi_sleep(500); // attend 500ms
 	}
