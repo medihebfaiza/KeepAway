@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include "library/grovepi.h"
 
-//Connexion : ssh faizabenchraa@162.38.111.124
+//Connexion : ssh -Y faizabenchraa@162.38.111.124
 //Pwd : faizabenchraa 
 //Compilation : gcc security_main.c library/grovepi.c -o security_main
 //Execution : sudo ./security_main
-//Recuperation : scp faizabenchraa@162.38.111.124:museum_security/photos/photo.jpg ~
+//Affichage : xdg-open photo.jpg
+//Recuperation : scp faizabenchraa@162.38.111.124:museum_security/photos/*.jpg ~
 
 #define us_cmd 7
 
@@ -35,7 +36,10 @@ int main(void)
 			system("omxplayer resources/alarme_boosted.wav") ; //lit le message audio
 		}
 		else if (data<=100.0){
-			system("raspistill -v -o photos/photo.jpg") ; //prend en photo
+			// -t : temps de capture (ms). -v : pour afficher les détails. -vf -hf : inverser l'image.
+			//Pour les videos : raspivid -t 5000 -o video.h264 
+			system("raspistill -t 500 -v -vf -hf -o photos/$(date +'%Y-%m-%d_%H%M').jpg") ;
+			system("xdg-open photos/$(date +'%Y-%m-%d_%H%M').jpg") ;
 		}
 	  pi_sleep(500); // attend 500ms
 	}
