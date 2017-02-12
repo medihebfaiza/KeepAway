@@ -2,6 +2,12 @@
 # Keep Away
 ![Keep Away logo][logo]
 Keep Away is a simple security device that helps protect objects in museums which visitors are not allowed to touch.
+
+## Presentation Video
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=P4nUwxE2ia0" target="_blank"><img src="http://img.youtube.com/vi/P4nUwxE2ia0/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
+
 ## How it works 
 
 ![](https://github.com/medihebfaiza/KeepAway/blob/master/docs/tex/imgs/fonct1.png)
